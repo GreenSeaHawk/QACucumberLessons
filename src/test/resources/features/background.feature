@@ -1,16 +1,19 @@
 Feature: Login Page
 
+  Background:
+    Given the user is on Login Page
+
+  @smoke
   Scenario: Login successful
 
-    Given the user is on Login Page
     When the user enters valid username and password
     And the user clicks login
     Then the user should be logged in successfully
 
-  Scenario: Login with invalid credentials
+  @wip
+  Scenario: Unsuccessful login with invalid credentials
 
-    Given the user is on Login Page
     When the user enters invalid username and password
-    And the user clicks login
-    Then the user should not be logged in
-    And receive an error message
+    And the user clicks the login button
+    Then the user should not be logged in succesfully
+

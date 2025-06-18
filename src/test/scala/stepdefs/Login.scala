@@ -1,5 +1,0 @@
-package stepdefs
-
-class Login {
-
-}
