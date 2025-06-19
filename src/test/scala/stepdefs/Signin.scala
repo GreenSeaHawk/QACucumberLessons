@@ -10,7 +10,7 @@ import java.time.Duration
 
 class Signin extends ScalaDsl with EN {
 
-//  val driver = DriverManager.driver // Use driver from Hooks DriverManager
+  //  val driver = DriverManager.driver // Use driver from Hooks DriverManager
   val driver: WebDriver = new ChromeDriver()
 
   Given("""the user is on Login Page""") { () =>
@@ -27,16 +27,16 @@ class Signin extends ScalaDsl with EN {
     driver.findElement(By.cssSelector("input[value='Log In']")).click()
   }
   Then("""the user should be logged in successfully""") { () =>
-      // Write code here
-      val explicitWait = new WebDriverWait(driver, Duration.ofSeconds(5))
-      val header: WebElement = explicitWait.until(
-        ExpectedConditions.visibilityOfElementLocated(By.tagName("h1"))
-      )
-      val actualHeader: String = header.getText
-      val expectedHeader: String = "Accounts Overview"
-      if (actualHeader == expectedHeader) {
-        println("Login successful")
-      }
+    // Write code here
+    val explicitWait = new WebDriverWait(driver, Duration.ofSeconds(5))
+    val header: WebElement = explicitWait.until(
+      ExpectedConditions.visibilityOfElementLocated(By.tagName("h1"))
+    )
+    val actualHeader: String = header.getText
+    val expectedHeader: String = "Accounts Overview"
+    if (actualHeader == expectedHeader) {
+      println("Login successful")
+    }
     driver.quit()
   }
 }
